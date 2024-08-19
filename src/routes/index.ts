@@ -8,12 +8,6 @@ const router = createHashRouter(
     {
       path: "/",
       lazy: async () => ({
-        Component: (await import("@/pages/Plogin")).default,
-      }),
-    },
-    {
-      path: "/home",
-      lazy: async () => ({
         Component: (await import("@/pages/home")).default,
       }),
     },
