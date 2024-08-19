@@ -1,5 +1,5 @@
 export enum linkEnum {
-  Dashboard = 'Dashboard',
+  Dashboard = 'Inicio',
   Transactions = 'Transactions',
   Accounts = 'Accounts',
   Investments = 'Investments',
