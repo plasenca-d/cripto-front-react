@@ -15,7 +15,7 @@ export const menuLinks: menuLinkType[] = [
   {
     id: 1,
     title: linkEnum.Dashboard,
-    link: "/",
+    link: "/home",
     icon: <HomeIcon />,
   },
   {
