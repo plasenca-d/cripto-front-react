@@ -29,7 +29,7 @@ function Setting() {
               _selected={{ color: "primary.100" }}
               className="py-7 px-4 font-semibold text-primary-200"
             >
-              Preferences
+              Wallets y Cuentas
             </Tab>
             <Tab
               _selected={{ color: "primary.100" }}
