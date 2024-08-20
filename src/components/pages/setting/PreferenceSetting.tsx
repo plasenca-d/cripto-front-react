@@ -1,5 +1,5 @@
 import instanceWithToken from '@/utils/instanceWithToken'
-import { Button, FormControl, FormLabel, Input, Select, Switch } from '@chakra-ui/react'
+import { Button, FormControl, FormLabel, Input, Select } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -7,13 +7,24 @@ import Cookies from 'js-cookie'
 import SectionWithTitle from '../SectionWithTitle'
 import ListsWallets from './ListsWallets'
 
+
+interface Wallet {
+  id: string;
+  alias: string;
+  tipo: 'cuenta_bancaria' | 'wallet_cripto';
+  wallet: string;
+  banco?: string;
+  tipo_cuenta?: string;
+}
+
+
 function PreferenceSetting() {
-  let [tipo, setTipo] = useState("")
-  let [alias, setAlias] = useState("")
-  let [wallet, setWallet] = useState("")
-  let [banco, setBanco] = useState("")
-  let [tipo_cuenta, setTipoCuenta] = useState("")
-  let [wallets, setWallets] = useState([])
+  let [tipo, setTipo] = useState<"cuenta_bancaria" | "wallet_cripto" | "">("")
+  let [alias, setAlias] = useState<string>("")
+  let [wallet, setWallet] = useState<string>("")
+  let [banco, setBanco] = useState<string>("")
+  let [tipo_cuenta, setTipoCuenta] = useState<string>("")
+  let [wallets, setWallets] = useState<Wallet[]>([])
 
   const getWallets = () => {
     instanceWithToken.get('auth/profile').then((result) => {
@@ -21,48 +32,42 @@ function PreferenceSetting() {
     })
   }
 
-
   const store = () => {
-    let payload = {}
+    let payload: any = {}
     if (!tipo) {
       withReactContent(Swal).fire({
         title: "Error!",
         text: 'Debes seleccionar primero el tipo de wallet!',
         icon: "error"
       })
-
       return
     }
 
-    if (tipo == 'cuenta_bancaria') {
-      if (!alias, !wallet, !banco, !tipo_cuenta) {
+    if (tipo === 'cuenta_bancaria') {
+      if (!alias || !wallet || !banco || !tipo_cuenta) {
         withReactContent(Swal).fire({
           title: "Error!",
           text: 'Todos los datos deben ser llenados correctamente!',
           icon: "error"
         })
-
         return
       }
-
       payload = { alias, wallet, banco, tipo, tipo_cuenta, user: Cookies.get("id") }
     }
 
-    if (tipo == 'wallet_cripto') {
-      if (!alias, !wallet) {
+    if (tipo === 'wallet_cripto') {
+      if (!alias || !wallet) {
         withReactContent(Swal).fire({
           title: "Error!",
           text: 'Todos los datos deben ser llenados correctamente!',
           icon: "error"
         })
-
         return
       }
-
       payload = { alias, wallet, tipo, user: Cookies.get("id") }
     }
 
-    instanceWithToken.post("wallets", payload).then((result) => {
+    instanceWithToken.post("wallets", payload).then(() => {
       withReactContent(Swal).fire({
         title: "Exito!",
         text: 'Wallet Creada con exito!',
@@ -89,7 +94,7 @@ function PreferenceSetting() {
           <FormControl className='col-span-2'>
             <Select
               value={tipo}
-              onChange={(event) => setTipo(event.target.value)}
+              onChange={(event) => setTipo(event.target.value as "cuenta_bancaria" | "wallet_cripto" | "")}
               placeholder='Seleccione'>
               <option value='cuenta_bancaria'>Cuenta</option>
               <option value='wallet_cripto'>Wallet</option>
@@ -102,7 +107,7 @@ function PreferenceSetting() {
               onChange={(event) => setAlias(event.target.value)}
             />
           </FormControl>
-          {tipo == 'cuenta_bancaria' &&
+          {tipo === 'cuenta_bancaria' &&
             <>
               <FormControl>
                 <FormLabel >Banco</FormLabel>
@@ -121,7 +126,7 @@ function PreferenceSetting() {
             </>
           }
           <FormControl>
-            <FormLabel >{tipo == 'cuenta_bancaria' ? 'Cuenta Bancaria' : 'Wallet Cripto'}</FormLabel>
+            <FormLabel >{tipo === 'cuenta_bancaria' ? 'Cuenta Bancaria' : 'Wallet Cripto'}</FormLabel>
             <Input
               value={wallet}
               onChange={(event) => setWallet(event.target.value)}

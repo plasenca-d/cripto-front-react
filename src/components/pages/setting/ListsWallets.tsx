@@ -3,9 +3,23 @@ import { Badge, Button } from "@chakra-ui/react"
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
-function ListsWallets({ wallets, onUpdate }) {
+interface Wallet {
+    id: string;
+    alias: string;
+    tipo: 'cuenta_bancaria' | 'wallet_cripto';
+    wallet: string;
+    banco?: string;
+    tipo_cuenta?: string;
+}
 
-    const eliminar = (id) => {
+interface ListsWalletsProps {
+    wallets: Wallet[];
+    onUpdate: () => void;
+}
+
+function ListsWallets({ wallets, onUpdate }: ListsWalletsProps) {
+
+    const eliminar = (id: string) => {
         instanceWithToken.delete('wallets/' + id).then((result) => {
             withReactContent(Swal).fire({
                 title: "Exito!",
@@ -63,7 +77,7 @@ function ListsWallets({ wallets, onUpdate }) {
                                         <p className="text-gray-900 whitespace-nowrap">{wallet.wallet}</p>
                                     </td>
                                     <td className="px-2 py-2 bg-white text-sm">
-                                        <p className="text-gray-900 whitespace-nowrap">{wallet.tipo == 'cuenta_bancaria' &&
+                                        <p className="text-gray-900 whitespace-nowrap">{wallet.tipo === 'cuenta_bancaria' &&
                                             <>
                                                 {wallet.banco} - {wallet.tipo_cuenta}
                                             </>}

@@ -13,7 +13,7 @@ export function Login() {
   let [password, setPassword] = useState("")
 
   const login = () => {
-    if (!username, !password) {
+    if (!username || !password) {
       withReactContent(Swal).fire({
         title: "Error!",
         text: "Debes poner todos los datos para iniciar sesion!",
@@ -25,7 +25,7 @@ export function Login() {
     instance.post("auth/login", { username, password }).then((result) => {
       let data = result.data.data
       console.log(data)
-      Cookies.set("sesion", true)
+      Cookies.set("sesion", "true")
       Cookies.set("token", data.token)
       Cookies.set("name", data.firstName + ' ' + data.lastName)
       Cookies.set("username", data.username)
