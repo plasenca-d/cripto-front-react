@@ -22,7 +22,7 @@ function CardListContainer() {
               </div>
               <div className="flex flex-col whitespace-nowrap">
                 <p className="text-black leading-0">Bank </p>
-                <p className="text-primary-400 leading-0">DBL Bank</p>
+                <p className="text-primary-400 leading-0">DBL k</p>
               </div>
               <div className="flex flex-col whitespace-nowrap">
                 <p className="text-black leading-0">Card Number </p>

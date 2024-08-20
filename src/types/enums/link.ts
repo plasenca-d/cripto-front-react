@@ -1,10 +1,10 @@
 export enum linkEnum {
-  Dashboard = 'Dashboard',
+  Dashboard = 'Inicio',
   Transactions = 'Transactions',
   Accounts = 'Accounts',
   Investments = 'Investments',
   Credit = 'Credit Cards',
   Loans = 'Loans',
   Services = 'Services',
-  Setting = 'Setting',
+  Setting = 'Configuraciones',
 }

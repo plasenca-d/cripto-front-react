@@ -14,13 +14,18 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "axios": "^1.7.4",
     "chart.js": "^4.4.1",
     "chart.piecelabel.js": "^0.15.0",
+    "date-fns": "^3.6.0",
     "framer-motion": "^10.18.0",
+    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.24.1",
+    "sweetalert2": "^11.12.4",
+    "sweetalert2-react-content": "^5.0.7",
     "swiper": "^11.0.5"
   },
   "devDependencies": {

@@ -23,7 +23,7 @@ function Setting() {
               _selected={{ color: "primary.100" }}
               className="py-7 px-4 font-semibold text-primary-200"
             >
-              Edit Profile
+              Datos de Perfil
             </Tab>
             <Tab
               _selected={{ color: "primary.100" }}
@@ -35,7 +35,7 @@ function Setting() {
               _selected={{ color: "primary.100" }}
               className="py-7 px-4 font-semibold text-primary-200"
             >
-              Security
+              Contraseña
             </Tab>
           </TabList>
           <TabIndicator
@@ -56,11 +56,11 @@ function Setting() {
             </TabPanel>
           </TabPanels>
         </Tabs>
-        <div className="flex justify-end">
+        {/* <div className="flex justify-end">
           <div className="flex flex-col w-full md:w-[150px]">
             <Button>Save</Button>
           </div>
-        </div>
+        </div> */}
       </div>
     </Body>
   );

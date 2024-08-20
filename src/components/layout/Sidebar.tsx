@@ -7,7 +7,7 @@ function Sidebar() {
   return (
     <div className="bg-white hidden md:flex flex-col gap-10 py-7 w-[300px] border-r border-light">
       <div className="px-6">
-        <img src="/logo.png" className="w-[150px]" />
+        <img src="https://tmtcode.pro/logo-ok.png" className="w-[150px]" />
       </div>
       <ul className="flex flex-col gap-2">
         {menuLinks.map((menu) => (

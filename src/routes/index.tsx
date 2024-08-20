@@ -11,17 +11,12 @@ import Setting from "@/pages/setting";
 
 const router = createBrowserRouter([
   {
-    path: "/auth",
-    children: [
-      {
-        path: "login",
-        element: <Login />,
-      },
-    ],
-  },
-  {
     path: "/",
     children: [
+      {
+        path: "",
+        element: <Login />,
+      },
       {
         path: "home",
         element: <Home />,

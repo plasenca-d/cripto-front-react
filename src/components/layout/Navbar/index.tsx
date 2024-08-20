@@ -32,12 +32,12 @@ function Navbar() {
             {menuLinks.filter((item) => item.link === locate.pathname)[0].title}
           </p>
           <div className="flex items-center gap-4">
-            <SearchInput
+            {/* <SearchInput
               className="hidden md:flex w-[250px]"
               handleSubmit={handleSubmit}
-            />
+            /> */}
             <div className="hidden md:flex">
-              <Button variant="light" onClick={() => navigate("/settings")}>
+              <Button variant="light" onClick={() => navigate("/setting")}>
                 <SettingOIcon />
               </Button>
             </div>

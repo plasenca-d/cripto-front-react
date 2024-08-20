@@ -12,7 +12,7 @@ function Body(props: BodyProps) {
   const { children, pageName } = props;
 
   useEffect(() => {
-    document.title = `Bankdash Dashboard | ${pageName}`;
+    document.title = `ClickMoneyPro | ${pageName}`;
   }, [pageName]);
 
   return (
