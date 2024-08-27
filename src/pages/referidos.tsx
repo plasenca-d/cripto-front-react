@@ -23,7 +23,7 @@ export function Referidos() {
     }, []);
 
     const handleCopy = () => {
-        const referidosLink = username ? `${baseURL}/referidos/${username}` : "";
+        const referidosLink = username ? `${baseURL}/register/${username}` : "";
         if (referidosLink) {
             navigator.clipboard.writeText(referidosLink).then(() => {
                 withReactContent(Swal).fire({
@@ -43,7 +43,7 @@ export function Referidos() {
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <b>Link de Referido: </b>
                     <span style={{ marginRight: 10 }}>
-                        {username ? `${baseURL}/referidos/${username}` : "No hay un usuario disponible"}
+                        {username ? `${baseURL}/register/${username}` : "No hay un usuario disponible"}
                     </span>
                     <div onClick={handleCopy} style={{ cursor: 'pointer' }}>
                         <Copy />
