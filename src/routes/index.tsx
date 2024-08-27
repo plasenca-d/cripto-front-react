@@ -1,13 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Login } from "@/pages/login";
 import Home from "@/pages/home";
-import Transactions from "@/pages/transactions";
-import Accounts from "@/pages/accounts";
-import Investment from "@/pages/investment";
-import Credit from "@/pages/credit";
-import Loans from "@/pages/loans";
-import Services from "@/pages/services";
 import Setting from "@/pages/setting";
+import { Referidos } from "@/pages/referidos";
+import { Register } from "@/pages/register";
 
 const router = createBrowserRouter([
   {
@@ -18,32 +14,16 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
+        path: "register/:referer?",
+        element: <Register />,
+      },
+      {
         path: "home",
         element: <Home />,
       },
       {
-        path: "transactions",
-        element: <Transactions />,
-      },
-      {
-        path: "accounts",
-        element: <Accounts />,
-      },
-      {
-        path: "investments",
-        element: <Investment />,
-      },
-      {
-        path: "cards",
-        element: <Credit />,
-      },
-      {
-        path: "loans",
-        element: <Loans />,
-      },
-      {
-        path: "services",
-        element: <Services />,
+        path: "referidos",
+        element: <Referidos />
       },
       {
         path: "setting",

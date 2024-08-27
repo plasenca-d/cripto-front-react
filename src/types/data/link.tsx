@@ -18,6 +18,12 @@ export const menuLinks: menuLinkType[] = [
     link: "/home",
     icon: <HomeIcon />,
   },
+  {
+    id: 2,
+    title: linkEnum.Referidos,
+    link: "/referidos",
+    icon: <AccountIcon />,
+  },
   // {
   //   id: 2,
   //   title: linkEnum.Transactions,

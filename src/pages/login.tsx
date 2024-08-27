@@ -1,6 +1,6 @@
 import { Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import Cookies from 'js-cookie'
@@ -59,9 +59,9 @@ export function Login() {
           <p className="text-lg font-semibold mb-4">Iniciar Sesion</p>
           <p className="text-sm font-semibold">
             No tienes cuenta?{" "}
-            <a href="/sign-up" className="text-xs font-normal">
+            <Link to={'/register'} className="text-xs font-normal">
               Crearte una Cuenta!
-            </a>
+            </Link>
           </p>
           <div className="flex flex-col gap-4 mt-8">
             <FormControl>
