@@ -3,16 +3,24 @@ import ProfileButton from "./ProfileButton";
 import NotifButton from "./NotifButton";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
-import { SettingOIcon } from "@/assets/icons";
-import { MenuIcon } from "@/assets/icons";
+import { SettingOIcon, MenuIcon } from "@/assets/icons";
 import MobileSidebar from "./MobileSidebar";
 import { useState } from "react";
-import { menuLinks } from "@/types/data/link";
+import { userMenuLinks, adminMenuLinks } from "@/types/data/link";
+import Cookies from "js-cookie";
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const navigate = useNavigate();
   const locate = useLocation();
+
+  const role = Cookies.get("role"); // Obtener el rol del usuario de las cookies
+
+  // Seleccionar el conjunto de enlaces según el rol
+  const menuLinks = role === "ADMIN" ? adminMenuLinks : userMenuLinks;
+
+  // Encontrar el título del menú actual
+  const currentMenu = menuLinks.find((item) => item.link === locate.pathname);
 
   const handleSubmit = (value: string) => {
     console.log(value);
@@ -29,7 +37,7 @@ function Navbar() {
             <MenuIcon />
           </button>
           <p className="text-xl font-semibold text-primary-200">
-            {menuLinks.filter((item) => item.link === locate.pathname)[0].title}
+            {currentMenu ? currentMenu.title : "Título no encontrado"}
           </p>
           <div className="flex items-center gap-4">
             {/* <SearchInput

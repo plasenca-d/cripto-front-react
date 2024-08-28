@@ -4,6 +4,8 @@ import Home from "@/pages/home";
 import Setting from "@/pages/setting";
 import { Referidos } from "@/pages/referidos";
 import { Register } from "@/pages/register";
+import PlanesIndex from "@/pages/planes/PlanesIndex";
+import PlanerCrear from "@/pages/planes/PlanerCrear";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,16 @@ const router = createBrowserRouter([
       {
         path: "setting",
         element: <Setting />,
+      },
+      {
+        path: "planes",
+        element: <PlanesIndex />,
+        children: [
+          {
+            path: "crear",
+            element: <PlanerCrear />,
+          },
+        ]
       },
     ],
   },

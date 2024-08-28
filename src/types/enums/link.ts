@@ -8,5 +8,6 @@ export enum linkEnum {
   Loans = 'Loans',
   Services = 'Servicios',
   Transactions = 'Transacciones',
-  
+  Paquetes = 'Paquetes',
+  Planes = 'Planes'
 }

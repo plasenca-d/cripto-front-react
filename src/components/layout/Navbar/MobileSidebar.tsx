@@ -1,7 +1,8 @@
 import React from "react";
 import { CloseIcon } from "@/assets/icons";
-import { menuLinks } from "@/types/data/link";
+import { userMenuLinks, adminMenuLinks } from "@/types/data/link";
 import { Link, useLocation } from "react-router-dom";
+import Cookies from "js-cookie"; // Importa Cookies para obtener el rol
 
 interface SidebarProps {
   show: boolean;
@@ -11,6 +12,11 @@ interface SidebarProps {
 function MobileSidebar(props: SidebarProps) {
   const { handleClose, show } = props;
   const locate = useLocation();
+
+  const role = Cookies.get("role"); // Obtener el rol del usuario de las cookies
+
+  // Seleccionar el conjunto de enlaces según el rol
+  const menuLinks = role === "ADMIN" ? adminMenuLinks : userMenuLinks;
 
   return (
     <>

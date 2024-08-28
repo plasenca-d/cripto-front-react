@@ -11,7 +11,8 @@ import {
 import { linkEnum } from "../enums/link";
 import { menuLinkType } from "../link";
 
-export const menuLinks: menuLinkType[] = [
+// Definir enlaces para usuarios regulares (USER)
+export const userMenuLinks: menuLinkType[] = [
   {
     id: 1,
     title: linkEnum.Dashboard,
@@ -24,46 +25,38 @@ export const menuLinks: menuLinkType[] = [
     link: "/referidos",
     icon: <AccountIcon />,
   },
-  // {
-  //   id: 2,
-  //   title: linkEnum.Transactions,
-  //   link: "/transactions",
-  //   icon: <TransactionIcon />,
-  // },
-  // {
-  //   id: 3,
-  //   title: linkEnum.Accounts,
-  //   link: "/accounts",
-  //   icon: <AccountIcon />,
-  // },
-  // {
-  //   id: 4,
-  //   title: linkEnum.Investments,
-  //   link: "/investments",
-  //   icon: <InvestmentsIcon />,
-  // },
-  // {
-  //   id: 5,
-  //   title: linkEnum.Credit,
-  //   link: "/cards",
-  //   icon: <CreditcardIcon />,
-  // },
-  // {
-  //   id: 6,
-  //   title: linkEnum.Loans,
-  //   link: "/loans",
-  //   icon: <LoansIcon />,
-  // },
-  // {
-  //   id: 7,
-  //   title: linkEnum.Services,
-  //   link: "/services",
-  //   icon: <ServicesIcon />,
-  // },
   {
-    id: 8,
+    id: 3,
+    title: linkEnum.Paquetes,
+    link: "/paquetes",
+    icon: <TransactionIcon />,
+  },
+  {
+    id: 4,
     title: linkEnum.Setting,
     link: "/setting",
     icon: <SettingsIcon />,
   },
+];
+
+// Definir enlaces para administradores (ADMIN)
+export const adminMenuLinks: menuLinkType[] = [
+  {
+    id: 1,
+    title: linkEnum.Dashboard,
+    link: "/home",
+    icon: <HomeIcon />,
+  },
+  {
+    id: 3,
+    title: 'Planes',
+    link: "/planes",
+    icon: <InvestmentsIcon />,
+  },
+  // {
+  //   id: 3,
+  //   title: 'Planes Crear',
+  //   link: "/planes/crear",
+  //   icon: <InvestmentsIcon />,
+  // }
 ];

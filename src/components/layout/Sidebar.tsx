@@ -1,8 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
-import { menuLinks } from "@/types/data/link";
+import { userMenuLinks, adminMenuLinks } from "@/types/data/link";
+import Cookies from "js-cookie";
 
 function Sidebar() {
+  const role = Cookies.get("role");
   const locate = useLocation();
+
+  // Seleccionar el conjunto de enlaces según el rol
+  const menuLinks = role === "ADMIN" ? adminMenuLinks : userMenuLinks;
 
   return (
     <div className="bg-white hidden md:flex flex-col gap-10 py-7 w-[300px] border-r border-light">
